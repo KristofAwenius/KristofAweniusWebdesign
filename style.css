@@ -36,3 +36,24 @@ section {
 h2 {
     color: #2c5282;
 }
+
+.kontakt-liste {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.kontakt-liste li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #4a5568;
+}
+
+.kontakt-liste a {
+    color: #2c5282;
+    text-decoration: none;
+}
+
+.kontakt-liste a:hover {
+    text-decoration: underline;
+}
