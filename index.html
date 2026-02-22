@@ -3,149 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kristof Petersen – Webdesign</title>
+    <title>Awenius Webdesign</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ===== STICKY NAV ===== -->
-    <nav class="sticky-nav">
+    <!-- ===== NAV (fixiert, außerhalb des Hero) ===== -->
+    <nav class="hero-nav">
         <div class="nav-inhalt">
-            <span class="nav-name">KP Webdesign</span>
+            <span class="nav-name">Awenius Webdesign</span>
             <div class="nav-links">
-                <a href="#ueber-mich">Über mich</a>
-                <a href="#leistungen">Leistungen</a>
-                <a href="#projekte">Projekte</a>
+                <a href="ueber-mich.html">Über mich</a>
+                <a href="ueber-mich.html#leistungen">Leistungen</a>
+                <a href="ueber-mich.html#projekte">Projekte</a>
                 <a href="#kontakt">Kontakt</a>
             </div>
-            <label class="toggle-switch" title="Dark Mode umschalten">
-                <input type="checkbox" id="dark-mode-toggle">
-                <span class="toggle-slider"></span>
-                <span class="toggle-label">🌙</span>
-            </label>
         </div>
     </nav>
 
     <!-- ===== HEADER / HERO ===== -->
-    <header>
+    <header class="hero-vollbild">
         <div class="hero-inhalt">
-            <div class="hero-text">
-                <h1>Kristof Petersen</h1>
-                <p class="hero-untertitel">Webdesign – gemeinsam zur besten Lösung</p>
-                <p class="hero-beschreibung">Ich gestalte moderne, individuelle Websites – zugeschnitten auf Ihre Ziele und Ihre Kunden. Gemeinsam bringen wir Ihre Idee online.</p>
-                <a href="#kontakt" class="hero-cta">Projekt anfragen</a>
-            </div>
-            <div class="hero-bild">
-                <img src="FM1A2075.jpg" alt="Kristof Petersen – Webdesigner">
-            </div>
+            <p class="hero-marke">Awenius Webdesign</p>
+            <h1>Moderne und Individuelle<br>Websites</h1>
+            <a href="ueber-mich.html" class="hero-cta">Mehr erfahren</a>
         </div>
     </header>
-
-    <!-- ===== ÜBER MICH ===== -->
-    <section id="ueber-mich" class="animiert">
-        <h2>Über mich</h2>
-        <p>Hallo, ich bin Kristof – Webdesigner mit Leidenschaft für klare, moderne und benutzerfreundliche Websites.</p>
-        <p>Mein Ansatz: Ich arbeite <strong>eng mit meinen Kunden zusammen</strong>, um zu verstehen, was wirklich gebraucht wird – und entwickle dann die beste Lösung dafür. Keine Einheitslösung von der Stange, sondern ein Ergebnis, das zu Ihnen passt.</p>
-        <p>Mit technischem Hintergrund in der Softwareentwicklung und einem Auge für Design verbinde ich Funktionalität mit Ästhetik.</p>
-    </section>
-
-    <!-- ===== LEISTUNGEN ===== -->
-    <section id="leistungen" class="animiert">
-        <h2>Leistungen</h2>
-        <p>Was ich für Sie umsetzen kann – immer individuell, immer gemeinsam entwickelt.</p>
-        <div class="karten-raster">
-            <div class="karte">
-                <div class="karte-icon">🎨</div>
-                <h3>Webdesign</h3>
-                <p>Moderne, ansprechende Designs, die Ihre Marke und Ihre Zielgruppe widerspiegeln.</p>
-                <span class="karte-tag">Design</span>
-            </div>
-            <div class="karte">
-                <div class="karte-icon">📱</div>
-                <h3>Responsive Design</h3>
-                <p>Ihre Website sieht auf jedem Gerät perfekt aus – Smartphone, Tablet oder Desktop.</p>
-                <span class="karte-tag">Mobile-First</span>
-            </div>
-            <div class="karte">
-                <div class="karte-icon">⚙️</div>
-                <h3>Umsetzung & Entwicklung</h3>
-                <p>Sauberer, schneller Code – damit Ihre Website nicht nur schön, sondern auch zuverlässig ist.</p>
-                <span class="karte-tag">HTML/CSS/JS</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== PROJEKTE ===== -->
-    <section id="projekte" class="animiert">
-        <h2>Projekte</h2>
-        <p>Hier entstehen in Kürze Referenzprojekte. Interesse an Zusammenarbeit? Melden Sie sich gerne!</p>
-        <div class="karten-raster">
-            <div class="karte">
-                <div class="karte-icon">🌐</div>
-                <h3>Portfolio-Website</h3>
-                <p>Persönliche Website mit modernem Design, Dark Mode und flüssigen Animationen.</p>
-                <span class="karte-tag">HTML/CSS/JS</span>
-            </div>
-            <div class="karte">
-                <div class="karte-icon">🏪</div>
-                <h3>Business-Website</h3>
-                <p>Professionelle Unternehmenswebsite mit Leistungsübersicht und Kontaktformular.</p>
-                <span class="karte-tag">Webdesign</span>
-            </div>
-            <div class="karte">
-                <div class="karte-icon">📋</div>
-                <h3>Landing Page</h3>
-                <p>Zielgerichtete Seite zur Präsentation eines Produkts oder einer Dienstleistung.</p>
-                <span class="karte-tag">Conversion</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== SKILLS ===== -->
-    <section id="skills" class="animiert">
-        <h2>Skills</h2>
-        <table class="skill-tabelle">
-            <thead>
-                <tr>
-                    <th>Technologie / Skill</th>
-                    <th>Bereich</th>
-                    <th>Niveau</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>HTML</td>
-                    <td>Frontend</td>
-                    <td><span class="niveau fortgeschritten">Fortgeschritten</span></td>
-                </tr>
-                <tr>
-                    <td>CSS</td>
-                    <td>Frontend</td>
-                    <td><span class="niveau mittel">Mittel</span></td>
-                </tr>
-                <tr>
-                    <td>JavaScript</td>
-                    <td>Frontend</td>
-                    <td><span class="niveau mittel">Mittel</span></td>
-                </tr>
-                <tr>
-                    <td>Responsive Design</td>
-                    <td>Design</td>
-                    <td><span class="niveau fortgeschritten">Fortgeschritten</span></td>
-                </tr>
-                <tr>
-                    <td>UI/UX Grundlagen</td>
-                    <td>Design</td>
-                    <td><span class="niveau mittel">Mittel</span></td>
-                </tr>
-                <tr>
-                    <td>Git / Versionskontrolle</td>
-                    <td>Werkzeuge</td>
-                    <td><span class="niveau mittel">Mittel</span></td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
 
     <!-- ===== KONTAKTFORMULAR ===== -->
     <section id="kontakt" class="animiert">
@@ -178,7 +61,7 @@
 
     <!-- ===== FOOTER ===== -->
     <footer class="seiten-footer">
-        <p>&copy; 2026 Kristof Petersen – Webdesign</p>
+        <p>&copy; 2026 Awenius Webdesign</p>
         <div class="footer-links">
             <a href="impressum.html">Impressum</a>
             <a href="datenschutz.html">Datenschutz</a>
@@ -186,17 +69,6 @@
     </footer>
 
     <script>
-        // ===== DARK MODE =====
-        const toggle = document.getElementById('dark-mode-toggle');
-        if (localStorage.getItem('dunkelModus') === 'an') {
-            document.body.classList.add('dunkel');
-            toggle.checked = true;
-        }
-        toggle.addEventListener('change', () => {
-            document.body.classList.toggle('dunkel');
-            localStorage.setItem('dunkelModus', toggle.checked ? 'an' : 'aus');
-        });
-
         // ===== FORMULAR =====
         function formularAbsenden(event) {
             event.preventDefault();
@@ -206,7 +78,7 @@
             setTimeout(() => msg.classList.add('versteckt'), 4000);
         }
 
-        // ===== SCROLL-ANIMATIONEN (Intersection Observer) =====
+        // ===== SCROLL-ANIMATIONEN =====
         const beobachter = new IntersectionObserver(eintraege => {
             eintraege.forEach(e => {
                 if (e.isIntersecting) e.target.classList.add('sichtbar');

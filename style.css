@@ -1,4 +1,4 @@
-/* ===== CSS VARIABLEN (Light / Dark Mode) ===== */
+/* ===== CSS VARIABLEN ===== */
 :root {
     --bg:           #f0f4f8;
     --karte-bg:     #ffffff;
@@ -7,24 +7,8 @@
     --rahmen:       #e2e8f0;
     --blau:         #2c5282;
     --blau-hell:    #bee3f8;
-    --scroll-bg:    #f7fafc;
-    --tab-inaktiv:  #e2e8f0;
     --tabelle-kopf: #ebf4ff;
     --tabelle-alt:  #f7fafc;
-}
-
-body.dunkel {
-    --bg:           #1a202c;
-    --karte-bg:     #2d3748;
-    --text:         #a0aec0;
-    --text-stark:   #e2e8f0;
-    --blau:         #63b3ed;
-    --rahmen:       #4a5568;
-    --blau-hell:    #2a4365;
-    --scroll-bg:    #2d3748;
-    --tab-inaktiv:  #374151;
-    --tabelle-kopf: #2a4365;
-    --tabelle-alt:  #374151;
 }
 
 /* ===== RESET & BASIS ===== */
@@ -32,9 +16,6 @@ body.dunkel {
     box-sizing: border-box;
 }
 
-* {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
 
 body {
     background-color: var(--bg);
@@ -43,6 +24,7 @@ body {
     margin: 0 auto;
     padding: 0 40px 60px 40px;
     color: var(--text);
+    overflow-x: hidden;
 }
 
 h1 { color: white; margin: 0 0 8px 0; }
@@ -108,85 +90,77 @@ p {
     color: white;
 }
 
-/* ===== TOGGLE SWITCH (Dark Mode) ===== */
-.toggle-switch {
+
+/* ===== NAV IM HERO ===== */
+.hero-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+}
+
+.hero-nav .nav-name {
+    color: white;
+}
+
+.hero-nav .nav-links a {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-nav .nav-links a:hover {
+    color: white;
+}
+
+
+/* ===== HERO VOLLBILD (index.html) ===== */
+.hero-vollbild {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    min-height: 100vh;
+    background-image: url('DSC02628.jpg');
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    flex-shrink: 0;
+    justify-content: center;
+    margin-bottom: 32px;
+    color: white;
 }
 
-.toggle-switch input {
-    display: none;
-}
-
-.toggle-slider {
-    width: 44px;
-    height: 24px;
-    background: #4a5568;
-    border-radius: 12px;
-    position: relative;
-    transition: background 0.3s;
-}
-
-.toggle-slider::after {
+.hero-vollbild::before {
     content: '';
     position: absolute;
-    width: 18px;
-    height: 18px;
-    background: white;
-    border-radius: 50%;
-    top: 3px;
-    left: 3px;
-    transition: left 0.3s;
-}
-
-.toggle-switch input:checked + .toggle-slider {
-    background: #553c9a;
-}
-
-.toggle-switch input:checked + .toggle-slider::after {
-    left: 23px;
-}
-
-.toggle-label {
-    font-size: 1rem;
-}
-
-/* ===== HEADER / HERO ===== */
-header {
-    background: linear-gradient(135deg, #2c5282 0%, #553c9a 55%, #2b6cb0 100%);
-    color: white;
-    padding: 60px 40px;
-    border-radius: 12px;
-    margin-bottom: 24px;
-    box-shadow: 0 6px 24px rgba(44, 82, 130, 0.45);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.48);
 }
 
 .hero-inhalt {
-    display: flex;
-    align-items: center;
-    gap: 48px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px 24px;
 }
 
-.hero-text {
-    flex: 1;
+.hero-marke {
+    font-size: 0.95rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 20px;
+    font-weight: 700;
 }
 
-.hero-untertitel {
-    color: #bee3f8;
-    font-size: 1.2rem;
-    margin: 4px 0 16px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-.hero-beschreibung {
-    color: #dbeafe;
-    font-size: 1rem;
-    line-height: 1.7;
-    margin: 0 0 28px;
+.hero-vollbild h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 36px;
+    color: white;
 }
 
 .hero-cta {
@@ -195,31 +169,60 @@ header {
     color: #2c5282;
     font-weight: bold;
     font-size: 1rem;
-    padding: 14px 32px;
+    padding: 15px 36px;
     border-radius: 8px;
     text-decoration: none;
     transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
 }
 
 .hero-cta:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 }
 
-.hero-bild {
-    flex-shrink: 0;
+/* ===== ÜBER-MICH SEITEN-HEADER ===== */
+.unterseite-header {
+    background: linear-gradient(135deg, #2c5282 0%, #553c9a 55%, #2b6cb0 100%);
+    color: white;
+    padding: 52px 40px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 24px rgba(44, 82, 130, 0.45);
 }
 
-.hero-bild img {
-    width: 200px;
-    height: 200px;
+.unterseite-titel {
+    color: white;
+    font-size: 2.2rem;
+    margin: 0 0 8px;
+}
+
+.unterseite-untertitel {
+    color: #bee3f8;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* ===== PROFIL-LAYOUT (Über-mich-Seite) ===== */
+.profil-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 36px;
+}
+
+.profil-foto {
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center top;
-    border: 4px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    display: block;
+    border: 4px solid var(--rahmen);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    flex-shrink: 0;
+}
+
+.profil-text h2 {
+    margin-top: 0;
 }
 
 /* ===== SECTIONS ===== */
@@ -289,9 +292,6 @@ section {
     border-radius: 12px;
 }
 
-body.dunkel .karte-tag {
-    color: #bee3f8;
-}
 
 /* ===== TABELLE ===== */
 .skill-tabelle {
