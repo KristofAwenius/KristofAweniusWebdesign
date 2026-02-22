@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kristof Petersen</title>
+    <title>Kristof Petersen – Webdesign</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,11 +11,11 @@
     <!-- ===== STICKY NAV ===== -->
     <nav class="sticky-nav">
         <div class="nav-inhalt">
-            <span class="nav-name">KP</span>
+            <span class="nav-name">KP Webdesign</span>
             <div class="nav-links">
                 <a href="#ueber-mich">Über mich</a>
+                <a href="#leistungen">Leistungen</a>
                 <a href="#projekte">Projekte</a>
-                <a href="#skills">Skills</a>
                 <a href="#kontakt">Kontakt</a>
             </div>
             <label class="toggle-switch" title="Dark Mode umschalten">
@@ -26,217 +26,131 @@
         </div>
     </nav>
 
-    <!-- ===== HEADER mit Gradient ===== -->
+    <!-- ===== HEADER / HERO ===== -->
     <header>
-        <h1>Kristof Petersen</h1>
-        <p>Java-Entwickler & Webentwicklung-Einsteiger</p>
+        <div class="hero-inhalt">
+            <div class="hero-text">
+                <h1>Kristof Petersen</h1>
+                <p class="hero-untertitel">Webdesign – gemeinsam zur besten Lösung</p>
+                <p class="hero-beschreibung">Ich gestalte moderne, individuelle Websites – zugeschnitten auf Ihre Ziele und Ihre Kunden. Gemeinsam bringen wir Ihre Idee online.</p>
+                <a href="#kontakt" class="hero-cta">Projekt anfragen</a>
+            </div>
+            <div class="hero-bild">
+                <img src="FM1A2075.jpg" alt="Kristof Petersen – Webdesigner">
+            </div>
+        </div>
     </header>
 
     <!-- ===== ÜBER MICH ===== -->
     <section id="ueber-mich" class="animiert">
         <h2>Über mich</h2>
-        <p>Ich bin Anwendungsentwickler mit Java-Hintergrund und lerne gerade moderne Webentwicklung.</p>
+        <p>Hallo, ich bin Kristof – Webdesigner mit Leidenschaft für klare, moderne und benutzerfreundliche Websites.</p>
+        <p>Mein Ansatz: Ich arbeite <strong>eng mit meinen Kunden zusammen</strong>, um zu verstehen, was wirklich gebraucht wird – und entwickle dann die beste Lösung dafür. Keine Einheitslösung von der Stange, sondern ein Ergebnis, das zu Ihnen passt.</p>
+        <p>Mit technischem Hintergrund in der Softwareentwicklung und einem Auge für Design verbinde ich Funktionalität mit Ästhetik.</p>
     </section>
 
-    <!-- ===== KARTEN ===== -->
-    <section id="projekte" class="animiert">
-        <h2>Projekte (Cards)</h2>
-        <p class="hinweis">Fahre mit der Maus über eine Karte um den Hover-Effekt zu sehen.</p>
+    <!-- ===== LEISTUNGEN ===== -->
+    <section id="leistungen" class="animiert">
+        <h2>Leistungen</h2>
+        <p>Was ich für Sie umsetzen kann – immer individuell, immer gemeinsam entwickelt.</p>
         <div class="karten-raster">
             <div class="karte">
-                <div class="karte-icon">🌐</div>
-                <h3>Meine Website</h3>
-                <p>Persönliche Website mit HTML, CSS und JavaScript.</p>
-                <span class="karte-tag">HTML/CSS</span>
+                <div class="karte-icon">🎨</div>
+                <h3>Webdesign</h3>
+                <p>Moderne, ansprechende Designs, die Ihre Marke und Ihre Zielgruppe widerspiegeln.</p>
+                <span class="karte-tag">Design</span>
             </div>
             <div class="karte">
-                <div class="karte-icon">☕</div>
-                <h3>Java REST-API</h3>
-                <p>Eine einfache REST-API mit Spring Boot und Maven.</p>
-                <span class="karte-tag">Java</span>
+                <div class="karte-icon">📱</div>
+                <h3>Responsive Design</h3>
+                <p>Ihre Website sieht auf jedem Gerät perfekt aus – Smartphone, Tablet oder Desktop.</p>
+                <span class="karte-tag">Mobile-First</span>
             </div>
             <div class="karte">
-                <div class="karte-icon">🗄️</div>
-                <h3>Datenbank-Tool</h3>
-                <p>Kleines Verwaltungsprogramm mit JDBC und SQL.</p>
-                <span class="karte-tag">SQL</span>
+                <div class="karte-icon">⚙️</div>
+                <h3>Umsetzung & Entwicklung</h3>
+                <p>Sauberer, schneller Code – damit Ihre Website nicht nur schön, sondern auch zuverlässig ist.</p>
+                <span class="karte-tag">HTML/CSS/JS</span>
             </div>
         </div>
     </section>
 
-    <!-- ===== TABELLE ===== -->
+    <!-- ===== PROJEKTE ===== -->
+    <section id="projekte" class="animiert">
+        <h2>Projekte</h2>
+        <p>Hier entstehen in Kürze Referenzprojekte. Interesse an Zusammenarbeit? Melden Sie sich gerne!</p>
+        <div class="karten-raster">
+            <div class="karte">
+                <div class="karte-icon">🌐</div>
+                <h3>Portfolio-Website</h3>
+                <p>Persönliche Website mit modernem Design, Dark Mode und flüssigen Animationen.</p>
+                <span class="karte-tag">HTML/CSS/JS</span>
+            </div>
+            <div class="karte">
+                <div class="karte-icon">🏪</div>
+                <h3>Business-Website</h3>
+                <p>Professionelle Unternehmenswebsite mit Leistungsübersicht und Kontaktformular.</p>
+                <span class="karte-tag">Webdesign</span>
+            </div>
+            <div class="karte">
+                <div class="karte-icon">📋</div>
+                <h3>Landing Page</h3>
+                <p>Zielgerichtete Seite zur Präsentation eines Produkts oder einer Dienstleistung.</p>
+                <span class="karte-tag">Conversion</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
     <section id="skills" class="animiert">
-        <h2>Skill-Übersicht (Tabelle)</h2>
+        <h2>Skills</h2>
         <table class="skill-tabelle">
             <thead>
                 <tr>
-                    <th>Technologie</th>
-                    <th>Kategorie</th>
+                    <th>Technologie / Skill</th>
+                    <th>Bereich</th>
                     <th>Niveau</th>
-                    <th>Erfahrung</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Java</td>
-                    <td>Backend</td>
-                    <td><span class="niveau fortgeschritten">Fortgeschritten</span></td>
-                    <td>3 Jahre</td>
-                </tr>
-                <tr>
-                    <td>Spring Boot</td>
-                    <td>Framework</td>
-                    <td><span class="niveau mittel">Mittel</span></td>
-                    <td>1 Jahr</td>
-                </tr>
-                <tr>
                     <td>HTML</td>
                     <td>Frontend</td>
-                    <td><span class="niveau mittel">Mittel</span></td>
-                    <td>6 Monate</td>
+                    <td><span class="niveau fortgeschritten">Fortgeschritten</span></td>
                 </tr>
                 <tr>
                     <td>CSS</td>
                     <td>Frontend</td>
-                    <td><span class="niveau anfaenger">Anfänger</span></td>
-                    <td>6 Monate</td>
-                </tr>
-                <tr>
-                    <td>SQL</td>
-                    <td>Datenbank</td>
                     <td><span class="niveau mittel">Mittel</span></td>
-                    <td>2 Jahre</td>
                 </tr>
                 <tr>
                     <td>JavaScript</td>
                     <td>Frontend</td>
-                    <td><span class="niveau anfaenger">Anfänger</span></td>
-                    <td>3 Monate</td>
+                    <td><span class="niveau mittel">Mittel</span></td>
+                </tr>
+                <tr>
+                    <td>Responsive Design</td>
+                    <td>Design</td>
+                    <td><span class="niveau fortgeschritten">Fortgeschritten</span></td>
+                </tr>
+                <tr>
+                    <td>UI/UX Grundlagen</td>
+                    <td>Design</td>
+                    <td><span class="niveau mittel">Mittel</span></td>
+                </tr>
+                <tr>
+                    <td>Git / Versionskontrolle</td>
+                    <td>Werkzeuge</td>
+                    <td><span class="niveau mittel">Mittel</span></td>
                 </tr>
             </tbody>
         </table>
     </section>
 
-    <!-- ===== SUCHLEISTE ===== -->
-    <section class="animiert">
-        <h2>Suchleiste (Live-Filter)</h2>
-        <p class="hinweis">Tippe etwas um die Liste zu filtern.</p>
-        <input type="text" id="suche" class="such-feld" placeholder="Technologie suchen...">
-        <ul class="such-liste" id="such-liste">
-            <li>Java</li>
-            <li>Spring Boot</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>SQL</li>
-            <li>Maven</li>
-            <li>Git</li>
-            <li>REST API</li>
-            <li>Linux</li>
-        </ul>
-    </section>
-
-    <!-- ===== TABS ===== -->
-    <section class="animiert">
-        <h2>Reiter (Tabs)</h2>
-        <p class="hinweis">Klicke auf die Reiter, um zwischen den Bereichen zu wechseln.</p>
-        <div class="tab-leiste">
-            <button class="tab-btn aktiv" onclick="zeigeTab('portfolio', this)">Portfolio</button>
-            <button class="tab-btn" onclick="zeigeTab('erfahrung', this)">Erfahrung</button>
-            <button class="tab-btn" onclick="zeigeTab('ausbildung', this)">Ausbildung</button>
-        </div>
-        <div class="tab-inhalt aktiv" id="portfolio">
-            <h3>Portfolio</h3>
-            <p>Hier könnten deine Projekte stehen — zum Beispiel eine To-Do-App, eine REST-API oder diese Website.</p>
-            <ul>
-                <li>Projekt 1: Meine erste Website (HTML/CSS)</li>
-                <li>Projekt 2: Java REST-API (Platzhalter)</li>
-                <li>Projekt 3: Spring Boot App (Platzhalter)</li>
-            </ul>
-        </div>
-        <div class="tab-inhalt" id="erfahrung">
-            <h3>Berufserfahrung</h3>
-            <p>Deine berufliche Laufbahn könnte hier übersichtlich dargestellt werden.</p>
-            <ul>
-                <li><strong>2023 – heute:</strong> Junior Java-Entwickler (Platzhalter GmbH)</li>
-                <li><strong>2021 – 2023:</strong> Ausbildung Anwendungsentwickler</li>
-            </ul>
-        </div>
-        <div class="tab-inhalt" id="ausbildung">
-            <h3>Ausbildung</h3>
-            <p>Zertifikate, Abschlüsse und Weiterbildungen könnten hier aufgelistet werden.</p>
-            <ul>
-                <li>Fachinformatiker – Anwendungsentwicklung (IHK)</li>
-                <li>Selbststudium: Webentwicklung (HTML, CSS, JavaScript)</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- ===== GALERIE ===== -->
-    <section class="animiert">
-        <h2>Bildergalerie</h2>
-        <p class="hinweis">Beispiel mit Platzhalter-Bildern — ersetze src durch eigene Bilder.</p>
-        <div class="galerie">
-            <figure>
-                <img src="https://picsum.photos/seed/java/400/250" alt="Programmieren">
-                <figcaption>Programmieren</figcaption>
-            </figure>
-            <figure>
-                <img src="https://picsum.photos/seed/web/400/250" alt="Webentwicklung">
-                <figcaption>Webentwicklung</figcaption>
-            </figure>
-            <figure>
-                <img src="https://picsum.photos/seed/city/400/250" alt="Stadtleben">
-                <figcaption>Stadtleben</figcaption>
-            </figure>
-            <figure>
-                <img src="https://picsum.photos/seed/nature/400/250" alt="Natur">
-                <figcaption>Natur</figcaption>
-            </figure>
-        </div>
-    </section>
-
-    <!-- ===== SCROLLBEREICH ===== -->
-    <section class="animiert">
-        <h2>Scrollbereich</h2>
-        <p class="hinweis">Container mit fester Höhe und scrollbarem Inhalt.</p>
-        <div class="scroll-box">
-            <h3>Changelog / Neuigkeiten</h3>
-            <div class="scroll-eintrag">
-                <span class="datum">2026-02-20</span>
-                <p>Toggle, Sticky Nav, Cards, Tabelle, Suche, Animationen und Gradient hinzugefügt.</p>
-            </div>
-            <div class="scroll-eintrag">
-                <span class="datum">2026-02-19</span>
-                <p>Tabs, Galerie und Scrollbereich hinzugefügt.</p>
-            </div>
-            <div class="scroll-eintrag">
-                <span class="datum">2026-02-15</span>
-                <p>Kontaktbereich mit E-Mail und LinkedIn-Link eingebaut.</p>
-            </div>
-            <div class="scroll-eintrag">
-                <span class="datum">2026-02-10</span>
-                <p>CSS-Styling verbessert — blauer Header und abgerundete Karten.</p>
-            </div>
-            <div class="scroll-eintrag">
-                <span class="datum">2026-02-05</span>
-                <p>Erste Version der persönlichen Website veröffentlicht.</p>
-            </div>
-            <div class="scroll-eintrag">
-                <span class="datum">2026-01-28</span>
-                <p>Grundstruktur mit HTML erstellt: Header, Über-mich, Skills.</p>
-            </div>
-            <div class="scroll-eintrag">
-                <span class="datum">2026-01-20</span>
-                <p>Projekt gestartet – Lernziel: Moderne Webentwicklung meistern.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- ===== KONTAKTFORMULAR ===== -->
     <section id="kontakt" class="animiert">
         <h2>Kontakt</h2>
-        <p>Du erreichst mich per E-Mail oder auf LinkedIn – oder schreib mir direkt:</p>
+        <p>Sie haben ein Projekt im Kopf? Ich freue mich auf Ihre Nachricht – gemeinsam finden wir die beste Lösung.</p>
         <ul class="kontakt-liste">
             <li>📧 <a href="mailto:deine@email.de">deine@email.de</a></li>
             <li>💼 <a href="https://linkedin.com/in/dein-name" target="_blank">linkedin.com/in/dein-name</a></li>
@@ -245,22 +159,31 @@
         <form class="kontakt-formular" onsubmit="formularAbsenden(event)">
             <div class="formular-gruppe">
                 <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Dein Name" required>
+                <input type="text" id="name" placeholder="Ihr Name" required>
             </div>
             <div class="formular-gruppe">
                 <label for="email">E-Mail</label>
-                <input type="email" id="email" placeholder="deine@email.de" required>
+                <input type="email" id="email" placeholder="ihre@email.de" required>
             </div>
             <div class="formular-gruppe">
-                <label for="nachricht">Nachricht</label>
-                <textarea id="nachricht" rows="5" placeholder="Deine Nachricht..." required></textarea>
+                <label for="nachricht">Ihr Projekt / Ihre Nachricht</label>
+                <textarea id="nachricht" rows="5" placeholder="Was möchten Sie umsetzen? Beschreiben Sie kurz Ihre Idee..." required></textarea>
             </div>
             <button type="submit" class="senden-btn">Nachricht senden</button>
         </form>
         <div id="formular-bestaetigung" class="bestaetigung versteckt">
-            ✅ Danke! Deine Nachricht wurde (simuliert) gesendet.
+            ✅ Danke! Ich melde mich so schnell wie möglich bei Ihnen.
         </div>
     </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="seiten-footer">
+        <p>&copy; 2026 Kristof Petersen – Webdesign</p>
+        <div class="footer-links">
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
 
     <script>
         // ===== DARK MODE =====
@@ -272,22 +195,6 @@
         toggle.addEventListener('change', () => {
             document.body.classList.toggle('dunkel');
             localStorage.setItem('dunkelModus', toggle.checked ? 'an' : 'aus');
-        });
-
-        // ===== TABS =====
-        function zeigeTab(id, btn) {
-            document.querySelectorAll('.tab-inhalt').forEach(el => el.classList.remove('aktiv'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('aktiv'));
-            document.getElementById(id).classList.add('aktiv');
-            btn.classList.add('aktiv');
-        }
-
-        // ===== SUCHE =====
-        document.getElementById('suche').addEventListener('input', function () {
-            const q = this.value.toLowerCase();
-            document.querySelectorAll('#such-liste li').forEach(li => {
-                li.style.display = li.textContent.toLowerCase().includes(q) ? '' : 'none';
-            });
         });
 
         // ===== FORMULAR =====

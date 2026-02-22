@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum – Kristof Petersen Webdesign</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== STICKY NAV ===== -->
+    <nav class="sticky-nav">
+        <div class="nav-inhalt">
+            <a href="index.html" class="nav-name" style="text-decoration: none;">KP Webdesign</a>
+            <div class="nav-links">
+                <a href="index.html#ueber-mich">Über mich</a>
+                <a href="index.html#leistungen">Leistungen</a>
+                <a href="index.html#projekte">Projekte</a>
+                <a href="index.html#kontakt">Kontakt</a>
+            </div>
+            <label class="toggle-switch" title="Dark Mode umschalten">
+                <input type="checkbox" id="dark-mode-toggle">
+                <span class="toggle-slider"></span>
+                <span class="toggle-label">🌙</span>
+            </label>
+        </div>
+    </nav>
+
+    <!-- ===== INHALT ===== -->
+    <div class="unterseite-inhalt">
+        <a href="index.html" class="zurueck-link">← Zurück zur Startseite</a>
+
+        <section>
+            <h2>Impressum</h2>
+            <p>Angaben gemäß § 5 TMG</p>
+
+            <h3>Verantwortlich</h3>
+            <p>
+                Kristof Petersen<br>
+                [Deine Straße und Hausnummer]<br>
+                [Postleitzahl] [Stadt]<br>
+                Deutschland
+            </p>
+
+            <h3>Kontakt</h3>
+            <p>
+                E-Mail: <a href="mailto:deine@email.de">deine@email.de</a>
+            </p>
+
+            <h3>Hinweis</h3>
+            <p>Diese Website wird als freiberufliches Angebot betrieben. Es besteht keine Umsatzsteuerpflicht gemäß § 19 UStG (Kleinunternehmerregelung) – bitte durch deine eigene steuerliche Situation prüfen und ggf. anpassen.</p>
+
+            <h3>Streitschlichtung</h3>
+            <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank">https://ec.europa.eu/consumers/odr</a>. Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        </section>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="seiten-footer">
+        <p>&copy; 2026 Kristof Petersen – Webdesign</p>
+        <div class="footer-links">
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('dark-mode-toggle');
+        if (localStorage.getItem('dunkelModus') === 'an') {
+            document.body.classList.add('dunkel');
+            toggle.checked = true;
+        }
+        toggle.addEventListener('change', () => {
+            document.body.classList.toggle('dunkel');
+            localStorage.setItem('dunkelModus', toggle.checked ? 'an' : 'aus');
+        });
+    </script>
+
+</body>
+</html>

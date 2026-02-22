@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutz – Kristof Petersen Webdesign</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== STICKY NAV ===== -->
+    <nav class="sticky-nav">
+        <div class="nav-inhalt">
+            <a href="index.html" class="nav-name" style="text-decoration: none;">KP Webdesign</a>
+            <div class="nav-links">
+                <a href="index.html#ueber-mich">Über mich</a>
+                <a href="index.html#leistungen">Leistungen</a>
+                <a href="index.html#projekte">Projekte</a>
+                <a href="index.html#kontakt">Kontakt</a>
+            </div>
+            <label class="toggle-switch" title="Dark Mode umschalten">
+                <input type="checkbox" id="dark-mode-toggle">
+                <span class="toggle-slider"></span>
+                <span class="toggle-label">🌙</span>
+            </label>
+        </div>
+    </nav>
+
+    <!-- ===== INHALT ===== -->
+    <div class="unterseite-inhalt">
+        <a href="index.html" class="zurueck-link">← Zurück zur Startseite</a>
+
+        <section>
+            <h2>Datenschutzerklärung</h2>
+
+            <h3>1. Verantwortlicher</h3>
+            <p>
+                Kristof Petersen<br>
+                [Deine Straße und Hausnummer]<br>
+                [Postleitzahl] [Stadt]<br>
+                E-Mail: <a href="mailto:deine@email.de">deine@email.de</a>
+            </p>
+
+            <h3>2. Datenerfassung auf dieser Website</h3>
+            <p>Diese Website erhebt und speichert automatisch Informationen in Server-Log-Dateien, die dein Browser übermittelt. Dies sind: Browsertyp, Betriebssystem, Referrer-URL, Hostname, Uhrzeit der Anfrage. Diese Daten sind nicht bestimmten Personen zuordenbar und werden nicht mit anderen Daten zusammengeführt.</p>
+
+            <h3>3. Kontaktformular</h3>
+            <p>Das Kontaktformular auf dieser Website sendet keine Daten automatisch ab – es dient derzeit als Demo. Sobald eine echte Übertragung eingerichtet wird, werden die dabei erhobenen Daten (Name, E-Mail, Nachricht) ausschließlich zur Bearbeitung deiner Anfrage verwendet und nicht an Dritte weitergegeben.</p>
+
+            <h3>4. Lokaler Speicher (localStorage)</h3>
+            <p>Diese Website speichert deine Dark-Mode-Einstellung im lokalen Speicher deines Browsers (localStorage). Es werden dabei keine personenbezogenen Daten erhoben. Der Eintrag bleibt lokal auf deinem Gerät und wird nicht an Server übertragen.</p>
+
+            <h3>5. Deine Rechte</h3>
+            <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner gespeicherten Daten sowie das Recht auf Datenübertragbarkeit. Wende dich dazu jederzeit per E-Mail an mich.</p>
+
+            <h3>6. Beschwerderecht</h3>
+            <p>Du hast das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Die zuständige Behörde richtet sich nach deinem Wohnort in Deutschland.</p>
+        </section>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="seiten-footer">
+        <p>&copy; 2026 Kristof Petersen – Webdesign</p>
+        <div class="footer-links">
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('dark-mode-toggle');
+        if (localStorage.getItem('dunkelModus') === 'an') {
+            document.body.classList.add('dunkel');
+            toggle.checked = true;
+        }
+        toggle.addEventListener('change', () => {
+            document.body.classList.toggle('dunkel');
+            localStorage.setItem('dunkelModus', toggle.checked ? 'an' : 'aus');
+        });
+    </script>
+
+</body>
+</html>
