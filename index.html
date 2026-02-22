@@ -35,7 +35,7 @@
         <h2>Kontakt</h2>
         <p>Sie haben ein Projekt im Kopf? Ich freue mich auf Ihre Nachricht – gemeinsam finden wir die beste Lösung.</p>
         <ul class="kontakt-liste">
-            <li>📧 <a href="mailto:kristof.awenius@gmail.com">kristof.awenius@gmail.com</a></li>
+            <li>📧 <a href="mailto:kontakt@awenius-webdesign.de">kontakt@awenius-webdesign.de</a></li>
             <li>💼 <a href="https://linkedin.com/in/dein-name" target="_blank">linkedin.com/in/dein-name</a></li>
         </ul>
 
@@ -70,12 +70,41 @@
 
     <script>
         // ===== FORMULAR =====
-        function formularAbsenden(event) {
+        async function formularAbsenden(event) {
             event.preventDefault();
-            event.target.reset();
+            const form = event.target;
+            const btn = form.querySelector('.senden-btn');
             const msg = document.getElementById('formular-bestaetigung');
+
+            btn.disabled = true;
+            btn.textContent = 'Wird gesendet…';
+
+            const daten = new FormData(form);
+            daten.append('name', form.querySelector('#name').value);
+            daten.append('email', form.querySelector('#email').value);
+            daten.append('nachricht', form.querySelector('#nachricht').value);
+
+            try {
+                const antwort = await fetch('kontakt.php', { method: 'POST', body: daten });
+                const json = await antwort.json();
+
+                if (json.success) {
+                    form.reset();
+                    msg.textContent = '✅ Danke! Ich melde mich so schnell wie möglich bei Ihnen.';
+                    msg.style.color = '';
+                } else {
+                    msg.textContent = '❌ ' + (json.message || 'Ein Fehler ist aufgetreten.');
+                    msg.style.color = '#c53030';
+                }
+            } catch {
+                msg.textContent = '❌ Verbindungsfehler. Bitte versuchen Sie es später erneut.';
+                msg.style.color = '#c53030';
+            }
+
             msg.classList.remove('versteckt');
-            setTimeout(() => msg.classList.add('versteckt'), 4000);
+            setTimeout(() => msg.classList.add('versteckt'), 5000);
+            btn.disabled = false;
+            btn.textContent = 'Nachricht senden';
         }
 
         // ===== SCROLL-ANIMATIONEN =====
