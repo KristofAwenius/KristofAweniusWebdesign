@@ -16,6 +16,7 @@
                 <a href="ueber-mich.html">Über mich</a>
                 <a href="ueber-mich.html#leistungen">Leistungen</a>
                 <a href="ueber-mich.html#projekte">Projekte</a>
+                <a href="#termin">Termin buchen</a>
                 <a href="#kontakt">Kontakt</a>
             </div>
         </div>
@@ -29,6 +30,54 @@
             <a href="ueber-mich.html" class="hero-cta">Mehr erfahren</a>
         </div>
     </header>
+
+    <!-- ===== BUCHUNGSKALENDER ===== -->
+    <section id="termin" class="animiert">
+        <h2>Termin buchen</h2>
+        <p>Wählen Sie einen freien Termin – ich melde mich zur Bestätigung bei Ihnen.</p>
+
+        <div class="kalender-wrapper">
+            <!-- Monatsnavigation -->
+            <div class="kalender-kopf">
+                <button class="kalender-nav" id="vorMonat" aria-label="Vorheriger Monat">&#8592;</button>
+                <span class="kalender-monat" id="kalenderTitel"></span>
+                <button class="kalender-nav" id="naechsterMonat" aria-label="Nächster Monat">&#8594;</button>
+            </div>
+
+            <!-- Wochentage -->
+            <div class="kalender-wochentage">
+                <span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span>
+                <span class="wochenende">Sa</span><span class="wochenende">So</span>
+            </div>
+
+            <!-- Tage-Grid -->
+            <div class="kalender-tage" id="kalenderTage"></div>
+        </div>
+
+        <!-- Zeitslots (erscheinen nach Datumsauswahl) -->
+        <div class="zeitslots-bereich versteckt" id="zeitslotBereich">
+            <h3 class="zeitslot-titel" id="zeitslotTitel"></h3>
+            <div class="zeitslots" id="zeitslots"></div>
+        </div>
+
+        <!-- Buchungsformular (erscheint nach Zeitauswahl) -->
+        <form class="buchungs-formular versteckt" id="buchungsFormular" onsubmit="terminBuchen(event)">
+            <p class="buchungs-zusammenfassung" id="buchungsZusammenfassung"></p>
+            <div class="formular-gruppe">
+                <label for="termin-name">Name</label>
+                <input type="text" id="termin-name" placeholder="Ihr Name" required>
+            </div>
+            <div class="formular-gruppe">
+                <label for="termin-email">E-Mail</label>
+                <input type="email" id="termin-email" placeholder="ihre@email.de" required>
+            </div>
+            <button type="submit" class="senden-btn">Termin anfragen</button>
+        </form>
+
+        <div id="termin-bestaetigung" class="bestaetigung versteckt">
+            ✅ Ihre Terminanfrage wurde gesendet! Ich melde mich zur Bestätigung.
+        </div>
+    </section>
 
     <!-- ===== KONTAKTFORMULAR ===== -->
     <section id="kontakt" class="animiert">
@@ -69,6 +118,118 @@
     </footer>
 
     <script>
+        // ===== BUCHUNGSKALENDER =====
+        const ZEITEN = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'];
+        // Beispiel-Sperrtage (YYYY-MM-DD)
+        const GESPERRT = [];
+
+        let aktuellesDatum = new Date();
+        let gewaehlterTag = null;
+        let gewaehlteZeit = null;
+
+        function kalenderRendern() {
+            const titel = document.getElementById('kalenderTitel');
+            const grid  = document.getElementById('kalenderTage');
+            const heute = new Date();
+            heute.setHours(0, 0, 0, 0);
+
+            const jahr  = aktuellesDatum.getFullYear();
+            const monat = aktuellesDatum.getMonth();
+
+            titel.textContent = new Date(jahr, monat, 1)
+                .toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
+
+            const ersterTag = new Date(jahr, monat, 1).getDay(); // 0=So
+            const startOffset = (ersterTag === 0) ? 6 : ersterTag - 1; // Mo=0
+            const tageImMonat = new Date(jahr, monat + 1, 0).getDate();
+
+            grid.innerHTML = '';
+
+            // Leerfelder vor dem 1.
+            for (let i = 0; i < startOffset; i++) {
+                grid.innerHTML += '<span></span>';
+            }
+
+            for (let tag = 1; tag <= tageImMonat; tag++) {
+                const datum = new Date(jahr, monat, tag);
+                const key   = datum.toISOString().split('T')[0];
+                const wt    = datum.getDay(); // 0=So, 6=Sa
+
+                const btn = document.createElement('button');
+                btn.textContent = tag;
+                btn.classList.add('kalender-tag');
+
+                if (datum < heute || wt === 0 || wt === 6 || GESPERRT.includes(key)) {
+                    btn.classList.add('deaktiviert');
+                    btn.disabled = true;
+                } else {
+                    btn.addEventListener('click', () => tagWaehlen(datum, key, btn));
+                }
+
+                if (key === gewaehlterTag) btn.classList.add('aktiv');
+                grid.appendChild(btn);
+            }
+        }
+
+        function tagWaehlen(datum, key, btn) {
+            gewaehlterTag = key;
+            gewaehlteZeit = null;
+            document.querySelectorAll('.kalender-tag').forEach(b => b.classList.remove('aktiv'));
+            btn.classList.add('aktiv');
+
+            const titel = document.getElementById('zeitslotTitel');
+            titel.textContent = 'Uhrzeit für ' + datum.toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long' });
+
+            const slots = document.getElementById('zeitslots');
+            slots.innerHTML = '';
+            ZEITEN.forEach(zeit => {
+                const btn = document.createElement('button');
+                btn.textContent = zeit + ' Uhr';
+                btn.classList.add('zeitslot-btn');
+                btn.addEventListener('click', () => zeitWaehlen(zeit, btn));
+                slots.appendChild(btn);
+            });
+
+            document.getElementById('zeitslotBereich').classList.remove('versteckt');
+            document.getElementById('buchungsFormular').classList.add('versteckt');
+            document.getElementById('termin-bestaetigung').classList.add('versteckt');
+        }
+
+        function zeitWaehlen(zeit, btn) {
+            gewaehlteZeit = zeit;
+            document.querySelectorAll('.zeitslot-btn').forEach(b => b.classList.remove('aktiv'));
+            btn.classList.add('aktiv');
+
+            const datum = new Date(gewaehlterTag);
+            const zusammenfassung = datum.toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
+                + ' um ' + zeit + ' Uhr';
+            document.getElementById('buchungsZusammenfassung').textContent = '📅 ' + zusammenfassung;
+            document.getElementById('buchungsFormular').classList.remove('versteckt');
+        }
+
+        function terminBuchen(event) {
+            event.preventDefault();
+            document.getElementById('buchungsFormular').classList.add('versteckt');
+            document.getElementById('zeitslotBereich').classList.add('versteckt');
+            const best = document.getElementById('termin-bestaetigung');
+            best.classList.remove('versteckt');
+            gewaehlterTag = null;
+            gewaehlteZeit = null;
+            document.querySelectorAll('.kalender-tag').forEach(b => b.classList.remove('aktiv'));
+            event.target.reset();
+        }
+
+        document.getElementById('vorMonat').addEventListener('click', () => {
+            aktuellesDatum.setMonth(aktuellesDatum.getMonth() - 1);
+            kalenderRendern();
+        });
+        document.getElementById('naechsterMonat').addEventListener('click', () => {
+            aktuellesDatum.setMonth(aktuellesDatum.getMonth() + 1);
+            kalenderRendern();
+        });
+
+        kalenderRendern();
+
         // ===== FORMULAR =====
         async function formularAbsenden(event) {
             event.preventDefault();

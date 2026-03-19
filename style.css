@@ -577,6 +577,159 @@ section {
     display: none;
 }
 
+/* ===== BUCHUNGSKALENDER ===== */
+.kalender-wrapper {
+    border: 1px solid var(--rahmen);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.kalender-kopf {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--blau);
+    color: white;
+    padding: 14px 20px;
+}
+
+.kalender-monat {
+    font-weight: bold;
+    font-size: 1.05rem;
+    text-transform: capitalize;
+}
+
+.kalender-nav {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 6px;
+    transition: background 0.2s;
+    line-height: 1;
+}
+
+.kalender-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.kalender-wochentage,
+.kalender-tage {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.kalender-wochentage {
+    background: var(--tabelle-kopf);
+    border-bottom: 1px solid var(--rahmen);
+}
+
+.kalender-wochentage span {
+    text-align: center;
+    padding: 8px 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--text-stark);
+}
+
+.kalender-wochentage .wochenende {
+    color: #a0aec0;
+}
+
+.kalender-tage {
+    padding: 8px;
+    gap: 4px;
+}
+
+.kalender-tag {
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text-stark);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kalender-tag:hover:not(.deaktiviert) {
+    background: var(--blau-hell);
+}
+
+.kalender-tag.aktiv {
+    background: var(--blau);
+    color: white;
+    font-weight: bold;
+}
+
+.kalender-tag.deaktiviert {
+    color: #cbd5e0;
+    cursor: not-allowed;
+    background: none;
+}
+
+/* Zeitslots */
+.zeitslots-bereich {
+    margin-bottom: 20px;
+}
+
+.zeitslot-titel {
+    color: var(--blau);
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.zeitslots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.zeitslot-btn {
+    padding: 10px 18px;
+    border: 2px solid var(--rahmen);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text-stark);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.zeitslot-btn:hover {
+    border-color: var(--blau);
+    background: var(--blau-hell);
+}
+
+.zeitslot-btn.aktiv {
+    border-color: var(--blau);
+    background: var(--blau);
+    color: white;
+    font-weight: bold;
+}
+
+/* Buchungsformular */
+.buchungs-formular {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.buchungs-zusammenfassung {
+    background: var(--blau-hell);
+    color: var(--blau);
+    font-weight: bold;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 0 0 4px 0;
+}
+
 /* ===== FOOTER ===== */
 .seiten-footer {
     margin-top: 8px;
